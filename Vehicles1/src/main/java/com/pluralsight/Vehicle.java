@@ -51,7 +51,11 @@ public class Vehicle {
     }
 
     public void setCargoCapacity(int cargoCapacity) {
-        this.cargoCapacity = cargoCapacity;
+        if (numberOfPassengers > 0) {
+            this.cargoCapacity = cargoCapacity;
+        } else {
+            throw new RuntimeException("Number of passengers must be greater than 0");
+        }
     }
 
     public int getFuelCapacity() {
@@ -59,6 +63,10 @@ public class Vehicle {
     }
 
     public void setFuelCapacity(int fuelCapacity) {
-        this.fuelCapacity = fuelCapacity;
+        if (fuelCapacity > 0) {
+            this.fuelCapacity = fuelCapacity;
+        } else {
+            throw new RuntimeException("Number of passengers must be greater than 0");
+        }
     }
 }
